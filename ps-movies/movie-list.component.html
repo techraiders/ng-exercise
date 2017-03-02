@@ -1,3 +1,25 @@
 <div>
-  <pre> {{ vm.movies | json }} </pre>
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th>
+      <th>Length</th>
+      <th>Rating</th>
+      <th>Moderate</th>
+    </tr>
+    <tr data-ng-repeat="movie in vm.movies">
+      <td> {{movie.title}} </td>
+      <td> {{movie.length}} </td>
+      <td> {{movie.rating}} </td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-default" data-ng-click="vm.upRating(movie)">
+            <span> + </span>
+          </button>
+          <button class="btn btn-default" data-ng-click="vm.downRating(movie)">
+            <span> - </span>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
