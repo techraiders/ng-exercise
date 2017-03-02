@@ -8,7 +8,7 @@
     });
 
   function controller ($http) {
-    console.clear();
+    //console.clear();
     var vm = this;
     vm.movies = [];
     vm.$onInit = function () {
