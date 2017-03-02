@@ -4,15 +4,26 @@
     .component('movieList', {
       templateUrl: '/ps-movies/movie-list.component.html',
       controllerAs: 'vm',
-      controller: controller
+      controller: ['$http', controller]
     });
 
-  function controller() {
+  function controller($http) {
+    console.clear();
     var vm = this;
-    vm.message = 'Hello from a component controller';
-    vm.changeMessage = function () {
-      vm.message = 'new changed messge';
+    vm.movies = [];
+    vm.$onInit = function () {
+      fetchMovies($http)
+        .then(function (movies) {
+          vm.movies = movies;
+        });
     };
+  }
+
+  function fetchMovies($http) {
+    return $http.get('ps-movies/movies.json')
+      .then(function (response) {
+        return response.data;
+      });
   }
 })();
 
