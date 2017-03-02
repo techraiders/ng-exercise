@@ -7,6 +7,10 @@
       controller: function () {
         var vm = this;
         vm.message = 'Hello from a component controller';
+
+        vm.changeMessage = function () {
+          vm.message = 'new changed messge';
+        };
       }
     });
 })();
