@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="" ng-app="mainModule">
+<html class="no-js" lang="" data-ng-app="mainModule">
 
 <head>
   <meta charset="utf-8">
@@ -15,16 +15,12 @@
         <![endif]-->
 </head>
 
-<body ng-controller="msg as vm">
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <div message text="first">
-    <div message text="..second">
-      <div message text="....third">
-      </div>
-    </div>
+<body data-ng-controller="msgCtrl">
+  <div message1>
+    This is content to transclude.
   </div>
-  <script src="node_modules/angular/angular.min.js"></script>
-  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/main.js"></script>
 </body>
 
