@@ -15,17 +15,13 @@
         <![endif]-->
 </head>
 
-<body>
+<body data-ng-controller="mainController as vm">
 HELLO <br>
 
   <div dx-button> CLICK ME </div> <br>
   <div dx-range-slider></div> <br>
   <div dx-chart="{
-    dataSource: [
-        { fruit: 'Oranges', total: 10 },
-        { fruit: 'Apples', total: 15 },
-        { fruit: 'Bananas', total: 9 }
-      ],
+    dataSource: vm.fruits,
       series: { argumentField: 'fruit', valueField: 'total' }
     }">
    </div>
