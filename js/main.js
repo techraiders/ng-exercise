@@ -1,12 +1,15 @@
 (function() {
   'use strict';
   angular.module('mainModule', ['ui.router', 'dx'])
-    .controller('mainController', [function(){
+    .controller('mainController', [function() {
       var vm = this;
-      vm.fruits = [
-        { fruit: 'Oranges', total: 10 },
-        { fruit: 'Apples', total: 15 },
-        { fruit: 'Bananas', total: 9 }
-      ];
+      vm.chartOptions = {
+        dataSource: [
+          { fruit: 'Oranges', total: 10 },
+          { fruit: 'Apples', total: 15 },
+          { fruit: 'Bananas', total: 9 }
+        ],
+        series: { argumentField: 'fruit', valueField: 'total' }
+      };
     }]);
 })();

@@ -20,10 +20,7 @@ HELLO <br>
 
   <div dx-button> CLICK ME </div> <br>
   <div dx-range-slider></div> <br>
-  <div dx-chart="{
-    dataSource: vm.fruits,
-      series: { argumentField: 'fruit', valueField: 'total' }
-    }">
+  <div dx-chart="vm.chartOptions">
    </div>
 
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
