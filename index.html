@@ -15,12 +15,45 @@
         <![endif]-->
 </head>
 
-<body data-ng-controller="msgCtrl">
-  <div message1>
-    This is content to transclude.
-  </div>
+<body>
+HELLO <br>
+
+  <div dx-button> CLICK ME </div> <br>
+  <div dx-range-slider></div> <br>
+  <div dx-chart="{
+    dataSource: [
+        { fruit: 'Oranges', total: 10 },
+        { fruit: 'Apples', total: 15 },
+        { fruit: 'Bananas', total: 9 }
+      ],
+      series: { argumentField: 'fruit', valueField: 'total' }
+    }">
+   </div>
+
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+  <!-- Reference Globalize if you need to localize app or your app uses custom date, number or currency formatting -->
+  <script type="text/javascript" src="node_modules/cldrjs/dist/cldr.js"></script>
+  <script type="text/javascript" src="node_modules/cldrjs/dist/cldr/event.js"></script>
+  <script type="text/javascript" src="node_modules/cldrjs/dist/cldr/supplemental.js"></script>
+  <script type="text/javascript" src="node_modules/globalize/dist/globalize.js"></script>
+  <script type="text/javascript" src="node_modules/globalize/dist/globalize/message.js"></script>
+  <script type="text/javascript" src="node_modules/globalize/dist/globalize/number.js"></script>
+  <script type="text/javascript" src="node_modules/globalize/dist/globalize/currency.js"></script>
+  <script type="text/javascript" src="node_modules/globalize/dist/globalize/date.js"></script>
+
+  <!-- DevExtreme themes -->
+  <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.common.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.light.css" />
+
+  <!-- A DevExtreme library -->
+  <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.all.js"></script>
+  <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.mobile.js"></script> -->
+  <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.viz.js"></script> -->
+  <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.web.js"></script> -->
+  <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.viz-web.js"></script> -->
   <script src="js/main.js"></script>
 </body>
 
