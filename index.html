@@ -8,6 +8,10 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+  <!-- DevExtreme themes -->
+  <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.common.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.light.css" />
   <link rel="stylesheet" href="css/main.css">
   <!--[if lt IE 9]>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -15,18 +19,65 @@
         <![endif]-->
 </head>
 
-<body data-ng-controller="mainController as vm">
-HELLO <br>
-
-  <div dx-button> CLICK ME </div> <br>
-  <div dx-range-slider></div> <br>
-  <div dx-chart="vm.chartOptions">
-   </div>
-
+<body class="dx-viewport container" data-ng-controller="mainController as vm">
+  <div class="form">
+    <div class="dx-fieldset">
+      <div class="dx-field">
+        <div class="dx-field-label">Default mode: </div>
+        <div class="dx-field-value">
+          <div dx-text-box="vm.textBox.simple"></div>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label"> With Placeholder: </div>
+        <div class="dx-field-value">
+          <div dx-text-box="vm.textBox.withPlaceholder"></div>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">With clear buton: </div>
+        <div class="dx-field-value">
+          <div dx-text-box="vm.textBox.withClearButton"></div>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Password mode: </div>
+        <div class="dx-field-value">
+          <div dx-text-box="vm.textBox.passwordMode"></div>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Text mask</div>
+        <div class="dx-field-value">
+          <div dx-text-box="vm.textBox.maskUsage"></div>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">Disabled</div>
+        <div class="dx-field-value">
+          <div dx-text-box="vm.textBox.disabled"></div>
+        </div>
+      </div>
+      <div class="dx-fieldset">
+        <div class="dx-fieldset-header">Events and API</div>
+        <div class="dx-field">
+          <div class="dx-field-label">Full Name</div>
+          <div class="dx-field-value">
+            <div dx-text-box="vm.textBox.fullName"></div>
+          </div>
+        </div>
+        <div class="dx-field">
+          <div class="dx-field-label">Email (read only)</div>
+          <div class="dx-field-value">
+            <div dx-text-box="vm.textBox.email"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-
   <!-- Reference Globalize if you need to localize app or your app uses custom date, number or currency formatting -->
   <script type="text/javascript" src="node_modules/cldrjs/dist/cldr.js"></script>
   <script type="text/javascript" src="node_modules/cldrjs/dist/cldr/event.js"></script>
@@ -36,11 +87,6 @@ HELLO <br>
   <script type="text/javascript" src="node_modules/globalize/dist/globalize/number.js"></script>
   <script type="text/javascript" src="node_modules/globalize/dist/globalize/currency.js"></script>
   <script type="text/javascript" src="node_modules/globalize/dist/globalize/date.js"></script>
-
-  <!-- DevExtreme themes -->
-  <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.common.css" />
-  <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.light.css" />
-
   <!-- A DevExtreme library -->
   <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.all.js"></script>
   <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.mobile.js"></script> -->
