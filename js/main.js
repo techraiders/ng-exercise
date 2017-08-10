@@ -3,51 +3,68 @@
   angular.module('mainModule', ['ui.router', 'dx'])
     .controller('mainController', [Controller]);
 
-    function Controller() {
-      var vm = this;
+  function Controller() {
+    var vm = this;
 
-      vm.textBox = {
-        simple: {
-          value: 'John Smith'
-        },
-        withPlaceholder: {
-          value: 'Enter full name here...'
-        },
-        withClearButton: {
-          value: 'John Smith',
-          showClearButton: true
-        },
-        passwordMode: {
-          mode: 'password',
-          placeholder: 'Enter password',
-          showClearButton: true,
-          value: 'kjdf57sjh'
-        },
-        maskUsage: {
-            mask: "+1 (X00) 000-0000",
-            maskRules: {"X": /[02-9]/}
-        },
-        disabled: {
-            value: "John Smith",
-            disabled: true
-        },
-        fullName: {
-            value: "Smith",
-            showClearButton: true,
-            placeholder: "Enter full name",
-            valueChangeEvent: "keyup",
-            onValueChanged: function(data) {
-              console.log(data);
-                vm.emailValue = data.value.replace(/\s/g, "").toLowerCase() + "@corp.com";
-            }
-        },
-        email: {
-            readOnly: true,
-            hoverStateEnabled: false,
-            bindingOptions: {
-                value: "vm.emailValue"
-            }
+    vm.maxLength = null;
+    vm.value = longText;
+
+    vm.textAreaWithMaxLength = {
+      height: 90,
+      bindingOptions: {
+        maxLength: "vm.maxLength",
+        value: "vm.value"
+      }
+    };
+
+    vm.checkBoxOptions = {
+      value: false,
+      onValueChanged: function(data) {
+        if (data.value) {
+          vm.value = longText.substring(0, 100);
+          vm.maxLength = 100;
+        } else {
+          vm.value = longText;
+          vm.maxLength = null;
         }
-      };
-    }
+      },
+      text: "Limit text length"
+    };
+
+    var valueChangeEvents = [{
+        title: "On Blur",
+        name: "change"
+    }, {
+        title: "On Key Up",
+        name: "keyup"
+    }];
+
+    vm.eventValue = valueChangeEvents[0].name;
+    vm.valueForEditableTextArea = longText;
+
+    vm.selectBoxOptions = {
+        items: valueChangeEvents,
+        valueExpr: "name",
+        displayExpr: "title",
+        bindingOptions: {
+            value: "vm.eventValue"
+        }
+    };
+
+    vm.editableTextArea = {
+      height: 90,
+      bindingOptions: {
+        value: "vm.valueForEditableTextArea",
+        valueChangeEvent: "vm.eventValue"
+      }
+    };
+
+    vm.disabledTextArea = {
+      height: 90,
+      readOnly: true,
+      bindingOptions: {
+        value: "vm.valueForEditableTextArea"
+      }
+    };
+  }
 })();
