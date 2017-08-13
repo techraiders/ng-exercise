@@ -15,9 +15,33 @@
         <![endif]-->
 </head>
 
-<body>
+<body data-ng-controller="DemoController as vm">
+  <p> {{::vm.date}} </p>
 
-  <div class="btn btn-default" data-interactive-btn>Button</div>
+  <p>
+    <strong> &nbsp; | date:</strong>
+    {{::vm.date | date}}
+  </p>
+  <p>
+    <strong> &nbsp; | date : 'medium'</strong>
+    {{::vm.date | date : 'medium'}}
+  </p>
+  <p>
+    <strong> &nbsp; | date: 'short'</strong>
+    {{::vm.date | date : 'short'}}
+  </p>
+  <p>
+    <strong> &nbsp; | date: 'fullDate'</strong>
+    {{::vm.date | date : 'fullDate'}}
+  </p>
+  <p>
+    <strong> &nbsp; | date: 'fullDate'</strong>
+    {{::vm.date | date : 'fullDate'}}
+  </p>
+  <p>
+    <strong> &nbsp; | date: 'fullDate'</strong>
+    {{::vm.date | date : 'fullDate'}}
+  </p>
 
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
