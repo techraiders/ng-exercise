@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en-us" ng-app="app">
 
 <head>
   <meta charset="utf-8">
@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/main.css">
 
   <!--[if lt IE 9]>
@@ -17,17 +18,16 @@
         <![endif]-->
 </head>
 
-<body ng-app="mainModule">
-  <div ng-controller="paramCtrl as vm">
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <button ng-click="vm.goToState('state1')">state 1</button>
-    <button ng-click="vm.goToState('state2')">state 2</button>
-    <ui-view></ui-view>
-  </div>
+<body>
 
-  <script src="node_modules/angular/angular.min.js"></script>
-  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <menu-bar brand="'Brand'"></menu-bar>
+  <user-info name="'Users Table'"></user-info>
+
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/components/appComponent.js"></script>
+  <script src="js/components/userComponent.js"></script>
 </body>
 
 </html>
