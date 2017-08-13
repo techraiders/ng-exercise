@@ -1,7 +1,7 @@
 (function() {
   var app = angular.module('app', []);
 
-  function AccordianController() {
+  /*function AccordianController() {
     var vm = this;
 
     // add panel
@@ -40,6 +40,6 @@
       template: '<!-- accordian-panel-template -->',
       controller: AccordianController
     }
-  });
+  });*/
 
 })();
