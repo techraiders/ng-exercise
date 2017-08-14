@@ -20,30 +20,14 @@
 
 <body>
 
-  <menu-bar brand="'Brand'"></menu-bar>
-  <user-info name="'Users Table'"></user-info>
+  <parent-component>
+    <child-component></child-component>
+  </parent-component>
 
-  <div class="container">
-   <!--The main accordion component-->
-    <accordion>
-      <!--The first panel with heading 1-->
-      <accordion-panel heading="heading 1">
-        This a panel
-      </accordion-panel>
-            <!--The secoind panel with heading 2-->
-      <accordion-panel heading="Heading 2">
-        this is another panel
-      </accordion-panel>
-    </accordion>
-  </div>
 
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/components/appComponent.js"></script>
-  <script src="js/components/userComponent.js"></script>
-  <script src="js/components/accordianComponent.js"></script>
-  <script src="js/components/accordianPanelComponent.js"></script>
 </body>
 
 </html>
