@@ -18,11 +18,8 @@
 </head>
 
 <body ng-app="mainModule">
-  <div ng-controller="paramCtrl as vm">
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <button ng-click="vm.goToState('state1')">state 1</button>
-    <button ng-click="vm.goToState('state2')">state 2</button>
-    <ui-view></ui-view>
+  <div data-ng-controller="BooksController as Books">
+    <p>Hello {{::Books.appName}} </p>
   </div>
 
   <script src="node_modules/angular/angular.min.js"></script>
