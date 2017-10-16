@@ -1,7 +1,6 @@
 (function () {
   var app = angular.module('mainModule', []);
-  app.config( function  ($provide) {
-    $provide.provider('books', function  () {
+  app.provider('books', function  () {
       this.$get = function  () {
         var appName = 'Book Logger';
         var appDesc = 'Track which books you read.';
@@ -12,7 +11,6 @@
         };
       };
     });
-  });
 
   app.controller('BooksController', function (books) {
     var vm = this;
