@@ -18,13 +18,9 @@
 </head>
 
 <body ng-app="mainModule">
-  <div data-ng-controller="BooksController as Books">
-    <button data-ng-click="Books.setAsFavorite('Book1')">Book1</button>
-    <button data-ng-click="Books.setAsFavorite('Book2')">Book2</button>
-  </div>
+  <div data-ng-controller="BooksController as vm"></div>
 
   <script src="node_modules/angular/angular.min.js"></script>
-  <script src="node_modules/angular-cookies/angular-cookies.js"></script>
   <script src="js/main.js"></script>
 </body>
 
