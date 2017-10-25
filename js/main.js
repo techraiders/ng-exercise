@@ -1,6 +1,6 @@
 var app = angular.module('mainModule', []);
 
-app.config(function  ($provide) {  	
+app.config(function  ($provide, booksProvider) {  	
 	$provide.decorator('$log', function  ($delegate) {
 		return {
 			/*log: function  (message) {
