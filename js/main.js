@@ -3,68 +3,86 @@
   angular.module('mainModule', ['ui.router', 'dx'])
     .controller('mainController', [Controller]);
 
+  var states = [{
+      name: 'Delhi',
+      area: 30
+    }, {
+      name: 'Uttar Pradesh',
+      area: 30
+    }, {
+      name: 'Madhya Pradesh',
+      area: 60
+    }];
+
+  var countries = [{
+    name: "Russia",
+    area: 12
+  }, {
+    name: "Canada",
+    area: 17
+  }, {
+    name: "USA",
+    area: 7
+  }, {
+    name: "China",
+    area: 7
+  }, {
+    name: "Brazil",
+    area: 6
+  }, {
+    name: "Australia",
+    area: 5
+  }, {
+    name: "India",
+    area: 2
+  }, {
+    name: "Others",
+    area: 55
+  }];
+
+  var dataSource = [states, countries];
+
   function Controller() {
     var vm = this;
 
-    vm.maxLength = null;
-    vm.value = longText;
-
-    vm.textAreaWithMaxLength = {
-      height: 90,
-      bindingOptions: {
-        maxLength: "vm.maxLength",
-        value: "vm.value"
-      }
-    };
-
-    vm.checkBoxOptions = {
-      value: false,
-      onValueChanged: function(data) {
-        if (data.value) {
-          vm.value = longText.substring(0, 100);
-          vm.maxLength = 100;
-        } else {
-          vm.value = longText;
-          vm.maxLength = null;
-        }
+    vm.pieChart = {
+      size: {
+        width: 500 // size of chart
       },
-      text: "Limit text length"
-    };
-
-    var valueChangeEvents = [{
-        title: "On Blur",
-        name: "change"
-    }, {
-        title: "On Key Up",
-        name: "keyup"
-    }];
-
-    vm.eventValue = valueChangeEvents[0].name;
-    vm.valueForEditableTextArea = longText;
-
-    vm.selectBoxOptions = {
-        items: valueChangeEvents,
-        valueExpr: "name",
-        displayExpr: "title",
-        bindingOptions: {
-            value: "vm.eventValue"
+      palette: "bright",
+      dataSource: dataSource[0], // countries are array of object.
+      series: [{
+        argumentField: 'name',
+        valueField: "area", // valueField is the key in dataSource objects whoose value affects size of pie sectors 
+        label: {
+          visible: true, // setting true here shows value of sectors
+          connector: {
+            visible: true, // shows line connecting label to its sector
+            width: 1 // width of connecting line
+          }
         }
-    };
-
-    vm.editableTextArea = {
-      height: 90,
-      bindingOptions: {
-        value: "vm.valueForEditableTextArea",
-        valueChangeEvent: "vm.eventValue"
-      }
-    };
-
-    vm.disabledTextArea = {
-      height: 90,
-      readOnly: true,
-      bindingOptions: {
-        value: "vm.valueForEditableTextArea"
+      }],
+      title: "Area of Countries",
+      "export": {
+        enabled: true // if enabled, shows burger icon which enables to download pieChart
+      },
+      onPointClick: function(e) {
+        var point = e.target;
+        toggleVisibility(point);
+      },
+      onLegendClick: function(e) {
+        var arg = e.target;
+        toggleVisibility(this.getAllSeries()[0].getPointsByArg(arg)[0]);
       }
     };
   }
+
+  function toggleVisibility(item) {
+    if (item.isVisible()) {
+      item.hide();
+    } else {
+      item.show();
+    }
+  }
+
 })();
